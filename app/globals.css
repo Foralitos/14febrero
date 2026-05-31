@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdf3d8;
+  --foreground: #1a1a1a;
+  --polaroid: #fff7e2;
+  --ink: #1a1a1a;
+  --pink: #d6457e;
+  --pink-soft: #e87aa3;
+  --gold: #c89826;
+  --locked-1: #9a9a9a;
+  --locked-2: #7d7d7d;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-polaroid: var(--polaroid);
+  --color-ink: var(--ink);
+  --color-pink: var(--pink);
+  --color-pink-soft: var(--pink-soft);
+  --color-gold: var(--gold);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-pixel: var(--font-pixel);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-pixel), monospace;
+  font-feature-settings: "kern" off;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+}
+
+img,
+svg {
+  image-rendering: pixelated;
+}
+
+.locked-stripes {
+  background-color: var(--locked-1);
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--locked-2) 0px,
+    var(--locked-2) 8px,
+    var(--locked-1) 8px,
+    var(--locked-1) 16px
+  );
+}
+
+.pixel-shadow {
+  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.6);
+}
+
+.pixel-shadow-sm {
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.55);
+}
+
+.pixel-shadow-lg {
+  box-shadow: 6px 6px 0 0 rgba(0, 0, 0, 0.6);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+
+.shake {
+  animation: shake 0.35s ease-in-out;
 }

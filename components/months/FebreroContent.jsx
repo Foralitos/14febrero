@@ -4,13 +4,12 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function Amarillas() {
+export default function FebreroContent() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative h-screen w-screen overflow-hidden bg-amber-50 flex items-center justify-center">
+    <div className="relative flex min-h-[460px] w-full items-center justify-center overflow-hidden bg-amber-50 border-2 border-ink">
       <AnimatePresence>
-        {/* Flores - aparecen cuando se abre la carta */}
         {isOpen && (
           <motion.div
             key="flores"
@@ -20,7 +19,7 @@ export default function Amarillas() {
             className="absolute inset-0 z-30"
           >
             <Image
-              src="/floresAmarillas.png"
+              src="/Siimg.png"
               alt="Flores amarillas"
               fill
               className="object-cover"
@@ -30,7 +29,6 @@ export default function Amarillas() {
         )}
       </AnimatePresence>
 
-      {/* Carta cerrada */}
       <AnimatePresence>
         {!isOpen && (
           <motion.div
@@ -42,12 +40,8 @@ export default function Amarillas() {
             className="relative z-10 cursor-pointer select-none"
             onClick={() => setIsOpen(true)}
           >
-            {/* Sombra exterior */}
             <div className="drop-shadow-2xl">
-              {/* Cuerpo del sobre */}
-              <div className="relative w-80 md:w-96 bg-amber-100 border-2 border-amber-300 rounded-b-lg overflow-visible">
-
-                {/* Solapa superior del sobre - animada */}
+              <div className="relative w-72 sm:w-80 md:w-96 bg-amber-100 border-2 border-amber-300 rounded-b-lg overflow-visible">
                 <motion.div
                   className="absolute -top-[90px] left-0 w-full h-[90px] origin-bottom z-20"
                   animate={{ rotateX: 0 }}
@@ -55,7 +49,6 @@ export default function Amarillas() {
                   transition={{ duration: 0.4 }}
                   style={{ perspective: "600px", transformStyle: "preserve-3d" }}
                 >
-                  {/* Triángulo de solapa */}
                   <div
                     className="w-full h-full"
                     style={{
@@ -66,7 +59,6 @@ export default function Amarillas() {
                   />
                 </motion.div>
 
-                {/* Triángulos laterales del sobre */}
                 <div
                   className="absolute top-0 left-0 w-1/2 h-16"
                   style={{
@@ -82,32 +74,23 @@ export default function Amarillas() {
                   }}
                 />
 
-                {/* Interior de la carta visible */}
                 <div className="relative z-10 pt-6 pb-8 px-6 flex flex-col items-center gap-4 min-h-[200px]">
-                  {/* Sello decorativo */}
                   <div className="absolute top-3 right-4 w-10 h-12 border-2 border-amber-400 flex items-center justify-center text-xl bg-white rounded-sm shadow-sm">
                     🌻
                   </div>
 
-                  {/* Línea decorativa */}
                   <div className="w-full flex items-center gap-2 mt-2">
                     <div className="flex-1 h-px bg-amber-300" />
                     <span className="text-amber-500 text-sm">✦</span>
                     <div className="flex-1 h-px bg-amber-300" />
                   </div>
 
-                  {/* Texto de la carta */}
                   <div className="text-center space-y-3 font-serif">
-                    <p className="text-amber-800 text-lg font-semibold leading-relaxed">
-                      Para ti,
-                    </p>
-                    <p className="text-amber-700 text-sm leading-relaxed">
-                      con todo mi cariño
-                    </p>
+                    <p className="text-amber-800 text-lg font-semibold leading-relaxed">Para ti,</p>
+                    <p className="text-amber-700 text-sm leading-relaxed">con todo mi cariño</p>
                     <p className="text-3xl">💛</p>
                   </div>
 
-                  {/* Línea decorativa inferior */}
                   <div className="w-full flex items-center gap-2">
                     <div className="flex-1 h-px bg-amber-300" />
                     <span className="text-amber-500 text-sm">✦</span>
@@ -115,7 +98,6 @@ export default function Amarillas() {
                   </div>
                 </div>
 
-                {/* Fondo triangular inferior del sobre */}
                 <div
                   className="h-16"
                   style={{
@@ -126,7 +108,6 @@ export default function Amarillas() {
               </div>
             </div>
 
-            {/* Hint de interacción */}
             <motion.p
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -138,7 +119,6 @@ export default function Amarillas() {
         )}
       </AnimatePresence>
 
-      {/* Partículas decorativas de fondo */}
       {!isOpen && (
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {["🌼", "🌻", "💛", "✨", "🌼", "🌻"].map((emoji, i) => (
