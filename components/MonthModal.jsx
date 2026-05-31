@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getMonth } from "../app/months";
 import FebreroContent from "./months/FebreroContent";
 import MarzoContent from "./months/MarzoContent";
+import MayoContent from "./months/MayoContent";
 
 function MonthContent({ id }) {
   switch (id) {
@@ -12,6 +13,8 @@ function MonthContent({ id }) {
       return <FebreroContent />;
     case "marzo":
       return <MarzoContent />;
+    case "mayo":
+      return <MayoContent />;
     default:
       return null;
   }
