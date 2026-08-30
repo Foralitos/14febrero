@@ -10,6 +10,10 @@
   --gold: #c89826;
   --locked-1: #9a9a9a;
   --locked-2: #7d7d7d;
+  /* Club de lectura: un color por estado y uno por lector. */
+  --green: #3f7d4f;
+  --blue: #3a6ea8;
+  --paper: #f3e6c4;
 }
 
 @theme inline {
@@ -20,6 +24,9 @@
   --color-pink: var(--pink);
   --color-pink-soft: var(--pink-soft);
   --color-gold: var(--gold);
+  --color-green: var(--green);
+  --color-blue: var(--blue);
+  --color-paper: var(--paper);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-pixel: var(--font-pixel);
@@ -72,4 +79,15 @@ svg {
 
 .shake {
   animation: shake 0.35s ease-in-out;
+}
+
+/* Quita las flechitas del input numérico: en el marcador de página se ven
+   fuera de lugar contra el resto de la UI pixel. */
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.no-spinner {
+  -moz-appearance: textfield;
 }

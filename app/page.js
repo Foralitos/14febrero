@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { MONTHS } from "./months";
 import PolaroidCard from "../components/PolaroidCard";
@@ -22,6 +23,15 @@ export default function Home() {
           <p className="font-pixel text-base tracking-[0.18em] text-ink sm:text-lg">
             ELIGE UN MES Y ABRE TU SORPRESA
           </p>
+        </div>
+
+        <div className="mt-6">
+          <Link
+            href="/club"
+            className="inline-block border-[3px] border-ink bg-pink px-5 py-2 font-pixel text-lg tracking-[0.12em] text-polaroid pixel-shadow transition-transform hover:-translate-y-1 active:translate-y-0 sm:text-xl"
+          >
+            ♥ NUESTRO CLUB DE LECTURA
+          </Link>
         </div>
       </header>
 
